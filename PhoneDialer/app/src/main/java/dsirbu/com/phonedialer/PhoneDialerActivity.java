@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class PhoneDialerActivity extends AppCompatActivity {
 
@@ -40,6 +41,7 @@ public class PhoneDialerActivity extends AppCompatActivity {
         ImageButton call = (ImageButton) findViewById(R.id.call);
         ImageButton hang = (ImageButton) findViewById(R.id.hang);
         ImageButton delete = (ImageButton) findViewById(R.id.delete);
+        ImageButton save = findViewById(R.id.save);
 
         for (int i = 0; i < 12; i++) {
             buttons[i].setOnClickListener(new View.OnClickListener() {
@@ -78,6 +80,20 @@ public class PhoneDialerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 phone.setText(phone.getText().toString().substring(0,phone.getText().toString().length()-1));
+            }
+        });
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phoneNumber = phone.getText().toString();
+                if (phoneNumber.length() > 0) {
+                    Intent intent = new Intent("dsirbu.com.contactsmanager.intent.action.ContactsManagerActivity");
+                    intent.putExtra("dsirbu.com.contactsmanager.PHONE_NUMBER_KEY", phoneNumber);
+                    startActivityForResult(intent, 12);
+                } else {
+                    Toast.makeText(getApplication(), getResources().getString(R.string.phone_error), Toast.LENGTH_LONG).show();
+                }
             }
         });
 

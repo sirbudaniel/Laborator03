@@ -12,4 +12,5 @@
     <string name="star">*</string>
     <string name="zero">0</string>
     <string name="hashtag">#</string>
+    <string name="phone_error">PHONE ERROR</string>
 </resources>
