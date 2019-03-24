@@ -143,13 +143,11 @@
             android:src="@drawable/call"
             android:layout_marginLeft="32dp"
             android:id="@+id/call"/>
-
-        <ImageButton
-            android:id="@+id/save"
+        <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@android:drawable/ic_menu_save" />
+            android:layout_weight="2"
+            />
 
         <ImageButton
             android:layout_width="wrap_content"
